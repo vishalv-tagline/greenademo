@@ -1,0 +1,349 @@
+<section class="h-100 gradient-form" style="background-color: #eee">
+  <div class="container py-5 h-100">
+    <div class="col-xl-8">
+      <div class="card rounded-3 text-black">
+        <div class="row g-0">
+          <div class="col-lg-12">
+            <div class="card-body p-md-5 mx-md-4">
+              <h2 class="mt-1 mb-3">Sign up</h2>
+              <p>Receive your Greena Index & Feedback.</p>
+              <p class="">Business info</p>
+              <form [formGroup]="businessForm">
+                <div class="col-md-12">
+                  <mat-label class="col-md-12">Type of business</mat-label>
+                  <mat-form-field class="col-md-12" appearance="fill">
+                    <mat-select
+                      formControlName="businessType"
+                      placeholder="Select Business"
+                    >
+                      <mat-option value="one">First option</mat-option>
+                      <mat-option value="two">Second option</mat-option>
+                    </mat-select>
+                    <mat-error>Select Business</mat-error>
+                  </mat-form-field>
+                </div>
+                <mat-label class="col-md-12">Name of business</mat-label>
+                <mat-form-field class="col-md-12">
+                  <input
+                    type="text"
+                    matInput
+                    formControlName="businessName"
+                    placeholder="Enter email address"
+                    class="is-invalid"
+                  />
+                  <mat-icon
+                    class="error-icon"
+                    matSuffix
+                    *ngIf="
+                      (fControl['businessName'].touched &&
+                        fControl['businessName'].errors) ||
+                      (submited && fControl['businessName'].pristine)
+                    "
+                    >error_outline</mat-icon
+                  >
+                  <mat-error>Enter valid Business Name</mat-error>
+                </mat-form-field>
+                <div class="row">
+                  <div class="col-sm-8 d-grid">
+                    <mat-label>Business address</mat-label>
+                    <mat-form-field>
+                      <input
+                        type="text"
+                        matInput
+                        formControlName="businessAddress"
+                        placeholder="Enter email address"
+                      />
+                      <mat-icon
+                        class="error-icon"
+                        matSuffix
+                        *ngIf="
+                          (fControl['businessAddress'].errors &&
+                            fControl['businessAddress'].touched) ||
+                          (submited && fControl['businessAddress'].pristine)
+                        "
+                        >error_outline</mat-icon
+                      >
+                      <mat-error>Enter valid business address</mat-error>
+                    </mat-form-field>
+                  </div>
+                  <div class="col-sm-4 d-grid">
+                    <mat-label>Post code</mat-label>
+                    <mat-form-field>
+                      <input
+                        type="number"
+                        matInput
+                        formControlName="postcode"
+                        placeholder="Enter email address"
+                      />
+
+                      <mat-error>Enter valid post code </mat-error>
+                    </mat-form-field>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6 d-grid">
+                    <mat-label>Location (country)</mat-label>
+                    <mat-form-field appearance="fill">
+                      <mat-select
+                        formControlName="country"
+                        placeholder="Select Country"
+                      >
+                        <mat-option value="one">First option</mat-option>
+                        <mat-option value="two">Second option</mat-option>
+                      </mat-select>
+                      <mat-error>Select valid country</mat-error>
+                    </mat-form-field>
+                  </div>
+                  <div class="col-md-6 d-grid">
+                    <mat-label>Location (city)</mat-label>
+                    <mat-form-field appearance="fill">
+                      <mat-select
+                        formControlName="city"
+                        placeholder="Select City"
+                      >
+                        <mat-option value="one">First option</mat-option>
+                        <mat-option value="two">Second option</mat-option>
+                      </mat-select>
+                      <mat-error>Select valid city</mat-error>
+                    </mat-form-field>
+                  </div>
+                </div>
+                <div class="text-center pt-1 mb-2 pb-1">
+                  <button
+                    class="w-100 btn-success mat-button-lg"
+                    mat-raised-button
+                    color="primary"
+                    (click)="onNext()"
+                  >
+                    Next
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="h-100" style="background-color: #eee">
+  <div class="container py-5 h-100">
+    <div class="col-xl-8">
+      <div class="card rounded-3 text-black">
+        <div class="row g-0">
+          <div class="col-lg-12">
+            <div class="card-body p-md-5 mx-md-4">
+              <h2 class="mt-1 mb-3">Responsive Sign up</h2>
+              <p>Receive your Greena Index & Feedback.</p>
+              <form [formGroup]="representativeForm">
+                <div class="col-md-12">
+                  <mat-label class="col-md-12">Name of business</mat-label>
+                  <mat-form-field class="col-md-12">
+                    <input
+                      type="text"
+                      matInput
+                      formControlName="name"
+                      placeholder="Enter business name"
+                    />
+                    <mat-icon
+                      class="error-icon"
+                      matSuffix
+                      *ngIf="
+                        (frmControl['name'].touched &&
+                          frmControl['name'].errors) ||
+                        (submited && frmControl['name'].pristine)
+                      "
+                      >error_outline</mat-icon
+                    >
+                    <mat-error
+                      class="mat-error"
+                      *ngIf="
+                        (frmControl['name'].touched &&
+                          frmControl['name'].pristine) ||
+                        (submited && frmControl['name'].pristine)
+                      "
+                      >Business Name is required.</mat-error
+                    >
+                  </mat-form-field>
+                </div>
+                <mat-label class="col-md-12">Job title</mat-label>
+                <mat-form-field class="col-md-12">
+                  <input
+                    type="text"
+                    matInput
+                    formControlName="jobTitle"
+                    placeholder="Enter job title"
+                  />
+                  <mat-icon
+                    class="error-icon"
+                    matSuffix
+                    *ngIf="
+                      (frmControl['jobTitle'].touched &&
+                        frmControl['jobTitle'].pristine) ||
+                      (submited && frmControl['jobTitle'].pristine)
+                    "
+                    >error_outline</mat-icon
+                  >
+                  <mat-error
+                    class="mat-error"
+                    *ngIf="
+                      (frmControl['jobTitle'].touched &&
+                        frmControl['jobTitle'].pristine) ||
+                      (submited && frmControl['jobTitle'].pristine)
+                    "
+                    >Job title is required.</mat-error
+                  >
+                </mat-form-field>
+
+                <mat-label class="col-md-12">Email</mat-label>
+                <mat-form-field class="col-md-12">
+                  <input
+                    type="text"
+                    matInput
+                    formControlName="email"
+                    placeholder="Enter email address"
+                  />
+                  <mat-icon
+                    class="error-icon"
+                    matSuffix
+                    *ngIf="
+                      (frmControl['email'].touched &&
+                        frmControl['email'].errors) ||
+                      (submited && frmControl['email'].pristine)
+                    "
+                    >error_outline</mat-icon
+                  >
+                  <mat-error
+                    class="mat-error"
+                    *ngIf="
+                      (frmControl['email'].invalid &&
+                        (frmControl['email'].touched ||
+                          (frmControl['email'].errors &&
+                            frmControl['email'].errors['pattern']))) ||
+                      (submited && frmControl['email'].pristine)
+                    "
+                    >Email id is required.</mat-error
+                  >
+                </mat-form-field>
+
+                <mat-label class="col-md-12">Set Password</mat-label>
+                <mat-form-field appearance="fill" class="col-md-12">
+                  <input
+                    matInput
+                    formControlName="spassword"
+                    [type]="hide ? 'password' : 'text'"
+                    placeholder="Enter set password"
+                  />
+                  <mat-icon
+                    class="error-icon"
+                    matSuffix
+                    *ngIf="
+                      (frmControl['spassword'].touched &&
+                        frmControl['spassword'].errors) ||
+                      (submited && frmControl['spassword'].pristine)
+                    "
+                    >error_outline</mat-icon
+                  >
+                  <mat-error
+                    class="mat-error"
+                    *ngIf="
+                      (frmControl['spassword'].touched &&
+                        frmControl['spassword'].errors) ||
+                      (submited && frmControl['spassword'].pristine)
+                    "
+                    >Password is required.</mat-error
+                  >
+
+                  <button
+                    mat-icon-button
+                    matSuffix
+                    (click)="hide = !hide"
+                    [attr.aria-label]="'Hide password'"
+                    [attr.aria-pressed]="hide"
+                    *ngIf="
+                      (!submited &&
+                        !frmControl['spassword'].touched &&
+                        frmControl['spassword'].errors) ||
+                      (frmControl['spassword'].dirty &&
+                        frmControl['spassword'].valid)
+                    "
+                  >
+                    <mat-icon [ngClass]="error ? 'd-none' : 'd-block'">{{
+                      hide ? "visibility_off" : "visibility"
+                    }}</mat-icon>
+                  </button>
+                </mat-form-field>
+                <mat-label class="col-md-12">Confirm Password</mat-label>
+                <mat-form-field appearance="fill" class="col-md-12">
+                  <input
+                    matInput
+                    formControlName="cpassword"
+                    [type]="hide2 ? 'password' : 'text'"
+                    placeholder="Enter set confirm password"
+                  />
+                  <mat-icon
+                    class="error-icon"
+                    matSuffix
+                    *ngIf="
+                      (frmControl['cpassword'].touched &&
+                        frmControl['cpassword'].errors) ||
+                      (submited && frmControl['cpassword'].pristine)
+                    "
+                    >error_outline</mat-icon
+                  >
+                  <mat-error
+                    class="mat-error"
+                    *ngIf="
+                      (frmControl['cpassword'].touched &&
+                        frmControl['cpassword'].hasError('required')) ||
+                      (submited && frmControl['cpassword'].pristine)
+                    "
+                    >Confirm password is required.</mat-error
+                  >
+                  <mat-error
+                    class="mat-error"
+                    *ngIf="
+                      frmControl['cpassword'].dirty &&
+                      frmControl['cpassword'].hasError('misMatch')
+                    "
+                    >Confirm password is't match in old password.</mat-error
+                  >
+                  <button
+                    mat-icon-button
+                    matSuffix
+                    (click)="hide2 = !hide2"
+                    [attr.aria-label]="'Hide password'"
+                    [attr.aria-pressed]="hide2"
+                    *ngIf="
+                      (!submited &&
+                        !frmControl['cpassword'].touched &&
+                        frmControl['cpassword'].errors) ||
+                      (frmControl['cpassword'].dirty &&
+                        frmControl['cpassword'].valid)
+                    "
+                  >
+                    <mat-icon>{{
+                      hide2 ? "visibility_off" : "visibility"
+                    }}</mat-icon>
+                  </button>
+                </mat-form-field>
+
+                <div class="text-center pt-1 mb-2 pb-1">
+                  <button
+                    class="w-100 btn-success mat-button-lg"
+                    mat-raised-button
+                    color="primary"
+                    (click)="onSubmit()"
+                  >
+                    SignUp
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,106 @@
+<section class="h-100" style="background-color: #eee">
+  <div class="container py-5 h-100">
+    <div class="col-xl-8">
+      <div class="card rounded-3 text-black">
+        <div class="row g-0">
+          <div class="col-lg-12">
+            <div class="card-body p-md-5 mx-md-4">
+              <h2 class="mt-1 mb-3">Log in</h2>
+              <p>Login in to your greena account</p>
+              <form [formGroup]="loginForm">
+                <mat-label class="col-md-12">Email</mat-label>
+                <mat-form-field class="col-md-12">
+                  <input
+                    type="text"
+                    matInput
+                    formControlName="email"
+                    placeholder="Enter your email id"
+                  />
+                  <mat-icon
+                    class="error-icon"
+                    matSuffix
+                    *ngIf="
+                      (fControl['email'].touched && fControl['email'].errors) ||
+                      (submited && fControl['email'].pristine)
+                    "
+                    >error_outline</mat-icon
+                  >
+                  <mat-error
+                    *ngIf="
+                      (fControl['email'].touched &&
+                        fControl['email'].invalid) ||
+                      (fControl['email'].errors &&
+                        fControl['email'].errors['pattern']) ||
+                      (submited && fControl['email'].pristine)
+                    "
+                    >Email id is required.</mat-error
+                  >
+                </mat-form-field>
+
+                <mat-label class="col-md-12">Password</mat-label>
+                <mat-form-field appearance="fill" class="col-md-12">
+                  <input
+                    matInput
+                    formControlName="password"
+                    [type]="hide ? 'password' : 'text'"
+                    placeholder="Enter password"
+                  />
+                  <mat-icon
+                    class="error-icon"
+                    matSuffix
+                    *ngIf="
+                      (fControl['password'].touched &&
+                        fControl['password'].errors) ||
+                      (submited && fControl['password'].pristine)
+                    "
+                    >error_outline</mat-icon
+                  >
+                  <mat-error
+                    *ngIf="
+                      (fControl['password'].touched &&
+                        fControl['password'].errors) ||
+                      (submited && fControl['password'].pristine)
+                    "
+                    >Password is required.</mat-error
+                  >
+                  <button
+                    mat-icon-button
+                    matSuffix
+                    (click)="hide = !hide"
+                    [attr.aria-label]="'Hide password'"
+                    [attr.aria-pressed]="hide"
+                    *ngIf="
+                      (!submited &&
+                        !fControl['password'].touched &&
+                        fControl['password'].errors) ||
+                      (fControl['password'].dirty && fControl['password'].valid)
+                    "
+                  >
+                    <mat-icon>{{
+                      hide ? "visibility_off" : "visibility"
+                    }}</mat-icon>
+                  </button>
+                </mat-form-field>
+
+                <a href="" class="float-end text-decoration-none"
+                  >Forget password?</a
+                >
+
+                <div class="text-center pt-1 mb-2 pb-1">
+                  <button
+                    class="w-100 btn-success mat-button-lg"
+                    mat-raised-button
+                    color="primary"
+                    (click)="onSubmit()"
+                  >
+                    Log in
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
